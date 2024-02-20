@@ -102,13 +102,17 @@ tg.MainButton.on('click', function() {
         start_parameter: 'start_parameter' // Уникальный параметр запуска платежа
     }).then(function(response) {
         // Обработка ответа
-        // console.log(response);
-	    alert(response)
+        alert('1');
+		tg.MainButton.setText("Всё хорошо!");
+		retrn
     }).catch(function(error) {
         // Обработка ошибок
-        // console.error(error);
-	    alert(error)
+        alert('2');
+		tg.MainButton.setText("Какая-то ошибка!");
+		return
     });
+
+	tg.MainButton.setText("Ничего не произошло!");
 });
 
 
