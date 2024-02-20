@@ -2,6 +2,8 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
+PAYMENT_TOKEN = '284685063:TEST:MjM0YjExZGZjMGU5';
+
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
@@ -81,9 +83,32 @@ btn6.addEventListener("click", function(){
 });
 
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	tg.sendData(item);
+// Telegram.WebApp.onEvent("mainButtonClicked", function(){
+// 	tg.sendData();
+// });
+
+
+tg.MainButton.on('click', function() {
+    // Отправляем запрос на открытие платежной формы Telegram
+    tg.payments.open({
+        // Здесь указываете данные о товаре и цене
+        // Например:
+        title: 'Ваш товар',
+        description: 'Описание вашего товара',
+        payload: 'custom_data', // Дополнительные данные, если нужно
+        provider_token: PAYMENT_TOKEN, // Токен платежного провайдера
+        currency: 'USD', // Валюта товара
+        prices: [{ label: 'Цена товара', amount: 100 }], // Цена товара в минимальных единицах валюты (например, центы для USD)
+        start_parameter: 'start_parameter' // Уникальный параметр запуска платежа
+    }).then(function(response) {
+        // Обработка ответа
+        console.log(response);
+    }).catch(function(error) {
+        // Обработка ошибок
+        console.error(error);
+    });
 });
+
 
 
 let usercard = document.getElementById("usercard");
