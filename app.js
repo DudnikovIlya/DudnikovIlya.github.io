@@ -102,10 +102,12 @@ tg.MainButton.on('click', function() {
         start_parameter: 'start_parameter' // Уникальный параметр запуска платежа
     }).then(function(response) {
         // Обработка ответа
-        console.log(response);
+        // console.log(response);
+	    alert(response)
     }).catch(function(error) {
         // Обработка ошибок
-        console.error(error);
+        // console.error(error);
+	    alert(error)
     });
 });
 
