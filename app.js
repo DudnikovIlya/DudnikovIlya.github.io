@@ -86,27 +86,27 @@ btn6.addEventListener("click", function(){
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	// tg.sendData('1');
 	// Отправляем запрос на открытие платежной формы Telegram
-    tg.payments.open({
-        // Здесь указываете данные о товаре и цене
-        // Например:
-        title: 'Ваш товар',
-        description: 'Описание вашего товара',
-        payload: 'custom_data', // Дополнительные данные, если нужно
-        provider_token: PAYMENT_TOKEN, // Токен платежного провайдера
-        currency: 'USD', // Валюта товара
-        prices: [{ label: 'Цена товара', amount: 100 }], // Цена товара в минимальных единицах валюты (например, центы для USD)
-        start_parameter: 'start_parameter' // Уникальный параметр запуска платежа
-    }).then(function(response) {
-        // Обработка ответа
-        alert('1');
-		tg.MainButton.setText("Всё хорошо!");
-		retrn
-    }).catch(function(error) {
-        // Обработка ошибок
-        alert('2');
-		tg.MainButton.setText("Какая-то ошибка!");
-		return
-    });
+  //   tg.payments.open({
+  //       // Здесь указываете данные о товаре и цене
+  //       // Например:
+  //       title: 'Ваш товар',
+  //       description: 'Описание вашего товара',
+  //       payload: 'custom_data', // Дополнительные данные, если нужно
+  //       provider_token: PAYMENT_TOKEN, // Токен платежного провайдера
+  //       currency: 'USD', // Валюта товара
+  //       prices: [{ label: 'Цена товара', amount: 100 }], // Цена товара в минимальных единицах валюты (например, центы для USD)
+  //       start_parameter: 'start_parameter' // Уникальный параметр запуска платежа
+  //   }).then(function(response) {
+  //       // Обработка ответа
+  //       alert('1');
+		// tg.MainButton.setText("Всё хорошо!");
+		// retrn
+  //   }).catch(function(error) {
+  //       // Обработка ошибок
+  //       alert('2');
+		// tg.MainButton.setText("Какая-то ошибка!");
+		// return
+  //   });
 
 	tg.MainButton.setText("Ничего не произошло!");
 });
